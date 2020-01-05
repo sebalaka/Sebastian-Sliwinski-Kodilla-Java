@@ -17,6 +17,10 @@ repositories {
 dependencies {
     //Test depedencies
     testCompile('junit:junit:4.12')
+    testCompile('org.mockito:mockito-all:1.10.19')
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+
 
     //External depedencies
     implementation('org.springframework.boot:spring-boot-starter-web')
