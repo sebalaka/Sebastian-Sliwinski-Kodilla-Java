@@ -11,6 +11,11 @@ import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 
 public class BoardTestSuite {
+    private static int applyAsInt(Task task) {
+        return Period.between(task.getCreated(),
+                LocalDate.now()).getDays();
+    }
+
     public Board prepareTestData() {
         //users
         User user1 = new User("developer1", "John Smith");
@@ -149,8 +154,7 @@ public class BoardTestSuite {
         double averageDaysQuantity = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
-                .mapToInt(task -> Period.between(task.getCreated(),
-                        LocalDate.now()).getDays())
+                .mapToInt(BoardTestSuite::applyAsInt)
                 .average().getAsDouble();
 
         //Then
