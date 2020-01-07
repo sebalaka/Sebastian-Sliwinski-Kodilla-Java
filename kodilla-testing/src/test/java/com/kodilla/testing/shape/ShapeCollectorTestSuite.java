@@ -52,10 +52,13 @@ public class ShapeCollectorTestSuite {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape shape = new Square(4);
+        Shape shape1 = new Triangle(4, 7 , 4);
+        shapeCollector.addFigure(shape);
+        shapeCollector.addFigure(shape1);
         //when
         shapeCollector.removeFigure(shape);
         //then
-        assertEquals(0,shapeCollector.size());
+        assertEquals(1,shapeCollector.size());
     }
 
     @Test
