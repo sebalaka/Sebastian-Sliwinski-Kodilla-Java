@@ -30,12 +30,5 @@ public class WorldTestSuite {
 
         //then
         Assert.assertEquals(new BigDecimal("1580000000"),peopleGermanyIndia);
-
-
-
-
     }
-
-
-
 }
