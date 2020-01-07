@@ -7,8 +7,12 @@ public class Logic {
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
         HashMap<String,Boolean> aiport = new HashMap<>();
-        if (!airport.containsKey(flight.getDepartureAirport())||!airport.containsKey(flight.getArrivalAirport())) {
-            throw new RouteNotFoundException("Airport does not exist!");
-        }
+        aiport.put("Pyrzowice", true);
+        aiport.put("Balice", false);
+        aiport.put("Doha",false);
+        aiport.put("Frankfurt",true);
+
+
+
     }
 }
