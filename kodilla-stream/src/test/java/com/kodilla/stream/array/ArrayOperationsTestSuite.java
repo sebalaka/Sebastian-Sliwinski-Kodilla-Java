@@ -8,14 +8,14 @@ import static org.junit.Assert.*;
 public class ArrayOperationsTestSuite {
     @Test
     public void testGetAverage() {
-        //GIVEN
+        //given
         int[] intArray = {1,2,3};
         double expectedAverage = 2;
 
-        //WHEN
+        //when
         double result = ArrayOperations.getAverage(intArray);
 
-        //THEN
+        //then
         assertEquals(expectedAverage, result,1);
     }
 }
