@@ -147,7 +147,6 @@ public class BoardTestSuite {
     public void testAddTaskListAverageWorkingOnTask() {
         //Given
         Board project = prepareTestData();
-
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
@@ -156,10 +155,7 @@ public class BoardTestSuite {
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .mapToInt(BoardTestSuite::applyAsInt)
                 .average().getAsDouble();
-
         //Then
         assertEquals(10.0, averageDaysQuantity, 1);
     }
-
-
 }
