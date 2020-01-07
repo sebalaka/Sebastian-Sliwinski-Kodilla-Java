@@ -24,10 +24,8 @@ public class WorldTestSuite {
         worldList.add(asia);
         worldList.add(europa);
         World world = new World(worldList);
-
         //when
         BigDecimal peopleGermanyIndia = world.getPeopleQuantity();
-
         //then
         Assert.assertEquals(new BigDecimal("1580000000"),peopleGermanyIndia);
     }
