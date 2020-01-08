@@ -14,6 +14,7 @@ public class StreamMain {
         Forum theForumUser = new Forum();
         theForumUser.getForumUsers().stream()
                 .filter(forumuser -> forumuser.getSex() == 'M')
+                //ma sie odejmowac data , period / between
                 .filter(forumUser -> forumUser.getBirthDate().getYear() <= 1999)
                 .filter(forumUser -> forumUser.getPostNumber() >= 1)
                 .forEach(System.out::println);
