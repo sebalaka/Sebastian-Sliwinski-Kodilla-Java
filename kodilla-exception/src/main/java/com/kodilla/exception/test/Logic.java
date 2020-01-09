@@ -1,7 +1,9 @@
 package com.kodilla.exception.test;
 
+import java.awt.print.Book;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Logic {
 
@@ -12,7 +14,21 @@ public class Logic {
         aiport.put("Doha",false);
         aiport.put("Frankfurt",true);
 
+        public HashMap<aiport> getList() {
+            return new HashMap<aiport>(Flight flight);
+        }
 
+    }
 
+    public static void main(String[] args) {
+
+        HashMap<String, Book> test = aiport.getList().stream()
+                .filter(book -> book.test() > 2005)
+                .collect(Collectors.toMap(Book::getSignature, book -> book));
+        System.out.println("# elements: " + aiport.size());
+
+        aiport.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
