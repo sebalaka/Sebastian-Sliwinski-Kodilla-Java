@@ -3,8 +3,9 @@ package com.kodilla.stream;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
@@ -13,9 +14,8 @@ public class StreamMain {
 
         Forum theForumUser = new Forum();
         theForumUser.getForumUsers().stream()
-                .filter(forumuser -> forumuser.getSex() == 'M')
-                //ma sie odejmowac data , period / between
-                .filter(forumUser -> forumUser.getBirthDate().getYear() <= 1999)
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> Period.between(forumUser.getBirthDate(), LocalDate.now()).getYears() >= 20)
                 .filter(forumUser -> forumUser.getPostNumber() >= 1)
                 .forEach(System.out::println);
 
