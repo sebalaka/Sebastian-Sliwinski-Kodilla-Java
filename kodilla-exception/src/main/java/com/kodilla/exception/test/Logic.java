@@ -14,8 +14,8 @@ public class Logic {
         aiport.put("Doha",false);
         aiport.put("Frankfurt",true);
 
-        public HashMap<aiport> getList() {
-            return new HashMap<aiport>(Flight flight);
+        public HashMap<Flight> getList() {
+            return new HashMap<Flight>(Flight flight);
         }
 
     }
