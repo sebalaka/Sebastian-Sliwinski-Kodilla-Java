@@ -1,34 +1,39 @@
 package com.kodilla.exception.test;
 
-import java.awt.print.Book;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class Logic {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
-        HashMap<String,Boolean> aiport = new HashMap<>();
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+        HashMap<String, Boolean> aiport = new HashMap<>();
         aiport.put("Pyrzowice", true);
         aiport.put("Balice", false);
-        aiport.put("Doha",false);
-        aiport.put("Frankfurt",true);
+        aiport.put("Doha", false);
+        aiport.put("Frankfurt", true);
 
-        public HashMap<Flight> getList() {
-            return new HashMap<Flight>(Flight flight);
+        for (Map.Entry<String, Boolean> entry : aiport.entrySet()) {
+            if (aiport.containsKey(flight.getDepartureAirport())) {
+                return aiport.get(flight.getDepartureAirport());
+            } else {
+                throw new RouteNotFoundException("This airport is not supported");
+            }
         }
-
+        return aiport.get(aiport.entrySet().contains(flight.getDepartureAirport()));
     }
 
     public static void main(String[] args) {
+        Flight flight = new Flight("Pyrzowice", "Frankfurt");
+        Logic flightChecker = new Logic();
 
-        HashMap<String, Book> test = aiport.getList().stream()
-                .filter(book -> book.test() > 2005)
-                .collect(Collectors.toMap(Book::getSignature, book -> book));
-        System.out.println("# elements: " + aiport.size());
-
-        aiport.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())
-                .forEach(System.out::println);
+        try {
+            flightChecker.findFlight(flight);
+        } catch (RouteNotFoundException e) {
+            System.out.println("The flight has not been found");
+        } finally {
+            System.out.println("Program is working");
+        }
     }
 }
+
+
