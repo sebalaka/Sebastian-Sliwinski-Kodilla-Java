@@ -20,7 +20,6 @@ public class Main {
 //                .stream()
 //                .map(Object::toString)
 //                .collect(joining("&"));
-//
 //        System.out.println(s);
     }
 }
